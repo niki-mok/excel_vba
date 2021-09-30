@@ -1,0 +1,128 @@
+Sub Button4_Click()
+    Dim xRg As Range
+    Dim xCell As Range
+    
+    'Source
+    Dim A As Integer
+
+    'Dest
+    Dim c As Integer
+    
+    'All branches
+    Dim USACA As Integer
+    Dim LA As Integer
+    Dim IDC As Integer
+    Dim HNL As Integer
+    Dim SFO As Integer
+    Dim ATL As Integer
+    Dim SE As Integer
+    Dim HT As Integer
+    Dim NY As Integer
+    Dim CAV As Integer
+    Dim CAT As Integer
+    
+    'Source Sheet
+    A = Worksheets("2021Order&ShippingSche(Shipped)").UsedRange.Rows.Count
+    
+    'Pointer for all branches
+    USACA = 1
+    LA = 1
+    IDC = 1
+    HNL = 1
+    SFO = 1
+    ATL = 1
+    SE = 1
+    HT = 1
+    NY = 1
+    CAV = 1
+    CAT = 1
+    
+    
+    'Clear Content
+    Worksheets("2021 USA&CA").Rows("2:" & Rows.Count).ClearContents
+    Worksheets("2021 LA-LA").Rows("2:" & Rows.Count).ClearContents
+    Worksheets("2021 LA-IDC").Rows("2:" & Rows.Count).ClearContents
+    Worksheets("2021 HNL").Rows("2:" & Rows.Count).ClearContents
+    Worksheets("2021 SFO").Rows("2:" & Rows.Count).ClearContents
+    Worksheets("2021 ATL").Rows("2:" & Rows.Count).ClearContents
+    Worksheets("2021 SE").Rows("2:" & Rows.Count).ClearContents
+    Worksheets("2021 HT").Rows("2:" & Rows.Count).ClearContents
+    Worksheets("2021 NY").Rows("2:" & Rows.Count).ClearContents
+    Worksheets("2021 CAV").Rows("2:" & Rows.Count).ClearContents
+    Worksheets("2021 CAT").Rows("2:" & Rows.Count).ClearContents
+    
+    'Source Sheet
+    Set xRg = Worksheets("2021Order&ShippingSche(Shipped)").Range("B1:B" & A)
+    On Error Resume Next
+    
+    
+    'IF Cases (All Branches)
+    'Check which branch in current row, loop from the top of sheet
+    
+    For c = 1 To xRg.Count
+    
+        If CStr(xRg(c).Value) = "LA-LA" Then
+            xRg(c).EntireRow.Copy Destination:=Worksheets("2021 USA&CA").Range("A" & USACA + 1)
+            xRg(c).EntireRow.Copy Destination:=Worksheets("2021 LA-LA").Range("A" & LA + 1)
+            USACA = USACA + 1
+            LA = LA + 1
+            
+        ElseIf CStr(xRg(c).Value) = "LA-IDC" Then
+            xRg(c).EntireRow.Copy Destination:=Worksheets("2021 USA&CA").Range("A" & USACA + 1)
+            xRg(c).EntireRow.Copy Destination:=Worksheets("2021 LA-IDC").Range("A" & IDC + 1)
+            USACA = USACA + 1
+            IDC = IDC + 1
+            
+        ElseIf CStr(xRg(c).Value) = "HNL" Then
+            xRg(c).EntireRow.Copy Destination:=Worksheets("2021 USA&CA").Range("A" & USACA + 1)
+            xRg(c).EntireRow.Copy Destination:=Worksheets("2021 HNL").Range("A" & HNL + 1)
+            USACA = USACA + 1
+            HNL = HNL + 1
+            
+        ElseIf CStr(xRg(c).Value) = "SFO" Then
+            xRg(c).EntireRow.Copy Destination:=Worksheets("2021 USA&CA").Range("A" & USACA + 1)
+            xRg(c).EntireRow.Copy Destination:=Worksheets("2021 SFO").Range("A" & SFO + 1)
+            USACA = USACA + 1
+            SFO = SFO + 1
+            
+        ElseIf CStr(xRg(c).Value) = "ATL" Then
+            xRg(c).EntireRow.Copy Destination:=Worksheets("2021 USA&CA").Range("A" & USACA + 1)
+            xRg(c).EntireRow.Copy Destination:=Worksheets("2021 ATL").Range("A" & ATL + 1)
+            USACA = USACA + 1
+            ATL = ATL + 1
+            
+        ElseIf CStr(xRg(c).Value) = "SE" Then
+            xRg(c).EntireRow.Copy Destination:=Worksheets("2021 USA&CA").Range("A" & USACA + 1)
+            xRg(c).EntireRow.Copy Destination:=Worksheets("2021 SE").Range("A" & SE + 1)
+            USACA = USACA + 1
+            SE = SE + 1
+            
+        ElseIf CStr(xRg(c).Value) = "HT" Then
+            xRg(c).EntireRow.Copy Destination:=Worksheets("2021 USA&CA").Range("A" & USACA + 1)
+            xRg(c).EntireRow.Copy Destination:=Worksheets("2021 HT").Range("A" & HT + 1)
+            USACA = USACA + 1
+            HT = HT + 1
+            
+        ElseIf CStr(xRg(c).Value) = "NY" Then
+            xRg(c).EntireRow.Copy Destination:=Worksheets("2021 USA&CA").Range("A" & USACA + 1)
+            xRg(c).EntireRow.Copy Destination:=Worksheets("2021 NY").Range("A" & NY + 1)
+            USACA = USACA + 1
+            NY = NY + 1
+            
+        ElseIf CStr(xRg(c).Value) = "CAV" Then
+            xRg(c).EntireRow.Copy Destination:=Worksheets("2021 USA&CA").Range("A" & USACA + 1)
+            xRg(c).EntireRow.Copy Destination:=Worksheets("2021 CAV").Range("A" & CAV + 1)
+            USACA = USACA + 1
+            CAV = CAV + 1
+            
+        ElseIf CStr(xRg(c).Value) = "CAT" Then
+            xRg(c).EntireRow.Copy Destination:=Worksheets("2021 USA&CA").Range("A" & USACA + 1)
+            xRg(c).EntireRow.Copy Destination:=Worksheets("2021 CAT").Range("A" & CAT + 1)
+            USACA = USACA + 1
+            CAT = CAT + 1
+            
+        End If
+        
+    Next
+    Call Worksheets("2021Order&ShippingSche(USA&CA)").CopyRowBasedOnCellValue
+End Sub
